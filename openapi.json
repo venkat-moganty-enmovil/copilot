@@ -1,0 +1,73 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Caddie Orchestrator API",
+    "version": "1.0.0",
+    "description": "Minimal endpoints to let the declarative agent call host-aware actions and relay to Caddie.",
+    "contact": {
+      "name": "Caddie Support",
+      "email": "support@caddie.ai"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://yourusername.github.io/caddie-openapi"
+    }
+  ],
+  "paths": {
+    "/context/excel/selection": {
+      "post": {
+        "operationId": "get_excel_selection",
+        "summary": "Excel: get current selection",
+        "tags": ["Excel"],
+        "x-copilot": { "enabled": true },
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Selection echoed back",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "host": {
+                      "type": "string",
+                      "enum": ["Excel"]
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "values": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      }
+                    }
+                  },
+                  "required": ["host", "address", "values"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
