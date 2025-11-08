@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "https://yourusername.github.io/caddie-openapi"
+      "url": "https://venkat-moganty-enmovil.github.io/copilot/openapi.json"
     }
   ],
   "paths": {
