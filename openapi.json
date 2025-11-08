@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "https://venkat-moganty-enmovil.github.io/copilot/openapi.json"
+      "url": "https://venkat-moganty-enmovil.github.io/copilot"
     }
   ],
   "paths": {
