@@ -1,29 +1,16 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Caddie Orchestrator API",
+    "title": "Test Plugin",
     "version": "1.0.0",
-    "description": "Minimal endpoints to let the declarative agent call host-aware actions and relay to Caddie.",
-    "contact": {
-      "name": "Caddie Support",
-      "email": "support@caddie.ai"
-    },
-    "license": {
-      "name": "MIT",
-      "url": "https://opensource.org/licenses/MIT"
-    }
+    "description": "Minimal test plugin"
   },
-  "servers": [
-    {
-      "url": "https://venkat-moganty-enmovil.github.io/copilot"
-    }
-  ],
   "paths": {
-    "/context/excel/selection": {
+    "/ping": {
       "post": {
-        "operationId": "get_excel_selection",
-        "summary": "Excel: get current selection",
-        "tags": ["Excel"],
+        "operationId": "ping",
+        "summary": "Ping test",
+        "tags": ["Test"],
         "x-copilot": { "enabled": true },
         "requestBody": {
           "required": false,
@@ -37,28 +24,15 @@
         },
         "responses": {
           "200": {
-            "description": "Selection echoed back",
+            "description": "Pong",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "host": {
-                      "type": "string",
-                      "enum": ["Excel"]
-                    },
-                    "address": {
-                      "type": "string"
-                    },
-                    "values": {
-                      "type": "array",
-                      "items": {
-                        "type": "array",
-                        "items": { "type": "string" }
-                      }
-                    }
+                    "message": { "type": "string" }
                   },
-                  "required": ["host", "address", "values"]
+                  "required": ["message"]
                 }
               }
             }
@@ -66,8 +40,5 @@
         }
       }
     }
-  },
-  "components": {
-    "schemas": {}
   }
 }
